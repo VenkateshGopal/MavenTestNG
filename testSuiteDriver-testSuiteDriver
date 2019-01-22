@@ -1,0 +1,72 @@
+package testSuiteDriver;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Iterator;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Test;
+
+import commonFunctions.TestData;
+
+public class testSuiteDriver extends TestData {
+	public static String configSheet = "DataFiles\\TestCases.xlsx";
+	public static String testData = "DataFiles\\TestData.xlsx";
+	
+	public static String data = null;
+	public static String value = null;
+	public static int count = 1;
+	public static int testDataRowNum;
+	public static XSSFSheet Scenariosheet = null;
+	public static XSSFSheet regionExecutionSheet = null;
+	public static XSSFSheet testDataSheet = null;
+	public static XSSFWorkbook wbConfig = null;
+	public static XSSFWorkbook wbTestData = null;
+	public static FileInputStream fis;
+	
+	@Test
+	public static void suiteDriver() throws Exception {
+		wbConfig = new XSSFWorkbook(new File(configSheet));
+		wbTestData = new XSSFWorkbook(new File(testData));
+	//	regionSheet = wbConfig.getSheet("Region");
+		Scenariosheet = wbConfig.getSheet("Config");
+		Iterator<Row> rowIterator = Scenariosheet.iterator();
+		rowIterator.next();
+		while (rowIterator.hasNext()) {
+			Row row = (Row) rowIterator.next();
+			int rowNum = row.getRowNum();
+			String ScenarioToBeExecute = excelutil.getcellvalue("Run Mode", rowNum, Scenariosheet);
+			String ScenarioName = excelutil.getcellvalue("ScenarioName", rowNum, Scenariosheet);
+			String ModuleName = excelutil.getcellvalue("ModuleName", rowNum, Scenariosheet);
+			//testDataSheet = excelutil.getcellvalue("ModuleName", rowNum, Scenariosheet);
+			System.out.println("Module Name " +ModuleName + " Scenario Name " +  ScenarioName + " Run Mode " + ScenarioToBeExecute );
+			if (ScenarioToBeExecute.equalsIgnoreCase("Y")) {
+				testDataSheet = wbTestData.getSheet(ModuleName);
+				System.out.println("testDataSheet " + ModuleName );
+				Iterator<Row> TCIterator =  testDataSheet.iterator();
+				TCIterator.next();
+				while (TCIterator.hasNext()) {
+					Row TCRow = (Row) TCIterator.next();
+					testDataRowNum = TCRow.getRowNum();
+					String TS_Name= excelutil.getcellvalue("scenario", testDataRowNum, testDataSheet);
+					String TC_NameToBeExecuted = excelutil.getcellvalue("Run Mode", testDataRowNum, testDataSheet);
+					String TC_Name= excelutil.getcellvalue("TC_Name", testDataRowNum, testDataSheet);
+					if(TC_NameToBeExecuted.equalsIgnoreCase("Y")) {
+						if (TS_Name.equalsIgnoreCase(ScenarioName)) {
+							TestData.getData(testDataRowNum, Scenariosheet);
+							System.out.println(RegistrationFlag);
+							System.out.println(Maker);
+						}
+					}
+				}
+			}
+			Scenariosheet = wbConfig.getSheet("Config");
+		}
+		wbTestData.write(excelutil.fos);
+		wbTestData.close();
+		wbConfig.close();
+		
+	}
+}
