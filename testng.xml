@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TRIMS">
+	<test name="Regression suite">
+		<classes>
+			<class name="commonFunctions.GetTestcases" >
+			<methods>
+				<include name="getCases" />
+			</methods>
+		</class>
+		<class name="commonFunctions.TestNgMethods"></class>
+		<class name="products.LC">
+				<methods>
+					<include name="beforeMethod" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

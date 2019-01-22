@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" name="TRIMS REGRESSION">
+  <test name="Regression">
+    <classes>
+      <class name="regions.EMEA">
+        <methods>
+          <include name="RMB_REG_PROC_INSP_INQ_EMEA"/>
+          <include name="RMU_REG_PROC_INSP_INQ_EMEA"/>
+        </methods>
+      </class> <!-- regions.EMEA -->
+      <class name="commonFunctions.AfterSuiteTest">
+        <methods>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- commonFunctions.AfterSuiteTest -->
+    </classes>
+  </test> <!-- Regression -->
+</suite> <!-- TRIMS REGRESSION -->
