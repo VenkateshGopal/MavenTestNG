@@ -2,17 +2,17 @@
 <suite name="TRIMS">
 	<test name="Regression suite">
 		<classes>
-			<class name="commonFunctions.GetTestcases" >
-			<methods>
-				<include name="getCases" />
-			</methods>
-		</class>
-		<class name="commonFunctions.TestNgMethods"></class>
-		<class name="products.LC">
+			<class name="commonFunctions.GetTestcases">
 				<methods>
-					<include name="beforeMethod" />
+					<include name="getCases" />
 				</methods>
 			</class>
+			<class name="commonFunctions.TestNgMethods"></class>
+			<class name="pages.ClassDemo">
+				<methods>
+				<include name="beforeMethod"/>
+				</methods>
+			</class>					
 		</classes>
 	</test>
 </suite>

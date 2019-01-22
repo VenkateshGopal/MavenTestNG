@@ -1,14 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>Trims_V1.0</groupId>
-  <artifactId>Trims_V1.0</artifactId>
+  <groupId>com.testng.demo</groupId>
+  <artifactId>TestNGDemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
-	<packaging>jar</packaging>
-	<name>Trims</name>
-	<description></description>
-
-	<dependencies>
+  <description>TestNG Framework with Extent Reports</description>
+  <dependencies>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -34,13 +30,13 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>11.2.0.3</version>
 			<scope>system</scope>
 			<systemPath>${basedir}/lib/ojdbc6-11.2.0.3.jar</systemPath>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.apache.maven.shared</groupId>
 			<artifactId>maven-invoker</artifactId>
@@ -114,7 +110,7 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.0.2</version>
@@ -135,7 +131,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
 				<configuration> <source>1.8</source> <target>1.8</target> </configuration> 
@@ -178,7 +174,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 				<version>1.10</version>
@@ -199,7 +195,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 		</plugins>
 		<pluginManagement>
 			<plugins>
