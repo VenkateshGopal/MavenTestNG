@@ -1,0 +1,42 @@
+package pages;
+
+import org.testng.annotations.Test;
+
+import commonFunctions.CommonMethods;
+
+public class ClassDemo extends CommonMethods {
+	
+	/*public static void main(String[] args) throws Exception {
+		beforeMethod();
+		LcFlow();
+		printMethod1();
+	}*/
+	
+	@Test
+	public static void beforeMethod() throws Exception {
+
+		Process p1 = Runtime.getRuntime().exec("Drivers\\ClearCache.bat");
+		Process p2 = Runtime.getRuntime().exec("Drivers\\ClearCache1.bat");
+		p1 = Runtime.getRuntime().exec("Drivers\\ClearCache.bat");
+		p2 = Runtime.getRuntime().exec("Drivers\\ClearCache1.bat");
+		p1 = Runtime.getRuntime().exec("Drivers\\ClearCache.bat");
+		p2 = Runtime.getRuntime().exec("Drivers\\ClearCache1.bat");
+		Thread.sleep(10000);
+		openBrowser();
+		System.out.println("Execute Before method");
+	}
+	public static void LcFlow() throws Exception {
+		
+			System.out.println("Registration Module called successfully");
+		
+				
+	}
+	public static void printMethod1() {
+		System.out.println("Print methods 1 - as demo");
+	}
+	
+	public static void printMethod2() {
+		System.out.println("Print methods 2 - as demo");
+	}
+
+}
