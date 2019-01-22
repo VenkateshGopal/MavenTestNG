@@ -1,0 +1,44 @@
+package regions;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import commonFunctions.CommonMethods;
+
+public class Asia extends CommonMethods {
+	
+	public static ExtentReports extent;
+	public static ExtentTest logger;
+	
+	@Test
+	public static void CDAF_Penfabric_Collection_DA_ASIA() throws Exception {
+			
+		System.out.println("Execute TC1");
+		System.out.println("Method1 executed !!");
+		
+		 // testcaseEMEAme_region, testcaseEMEAme, sheetEMEAme, classEMEAme, methodEMEAme
+		 
+		executionMethod( "CDAF_Penfabric_Collection_DA_ASIA", "CreateDAF", "pages.ClassDemo", "LcFlow");
+		
+		//logger= extent.startTest("method1");
+		//Assert.assertTrue(true);
+		//logger.log(LogStatus.PASS, "Test Cases Passed");
+		//executionMethod//
+		
+	}
+	@Test (priority=2)
+	public static void CDAF_Penfabric_Collection_DP_ASIA() {
+		System.out.println("Execute TC2");
+		System.out.println("Method2 executed !!");
+		logger= extent.startTest("method2");
+		Assert.assertTrue(true);
+		logger.log(LogStatus.PASS, "Test Cases Passed");
+		
+	}
+
+
+}
